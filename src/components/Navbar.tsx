@@ -1,20 +1,27 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Shield, Menu, X, Trophy, Flame, ChevronRight, FileSpreadsheet } from "lucide-react";
+import { Menu, X, ArrowRight, LayoutDashboard, Flame } from "lucide-react";
 
 interface NavbarProps {
   onOpenRegistration: (preselectedGame?: string) => void;
   onOpenGoogleForm: () => void;
+  onToggleDashboard?: () => void;
+  showDashboard?: boolean;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ onOpenRegistration, onOpenGoogleForm }) => {
+export const Navbar: React.FC<NavbarProps> = ({
+  onOpenRegistration,
+  onOpenGoogleForm,
+  onToggleDashboard,
+  showDashboard = false,
+}) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      setIsScrolled(window.scrollY > 15);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -22,140 +29,142 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegistration, onOpenGoogle
 
   const navLinks = [
     { label: "Home", href: "#hero" },
-    { label: "About", href: "#about" },
-    { label: "Games", href: "#games" },
     { label: "Tournaments", href: "#tournaments" },
-    { label: "Why WEVI", href: "#why-choose-us" },
+    { label: "Games", href: "#games" },
     { label: "Community", href: "#community" },
-    { label: "Contact", href: "#contact" },
   ];
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-200 ${
         isScrolled
-          ? "bg-wevi-darker/90 backdrop-blur-md border-b border-wevi-border/70 py-3 shadow-2xl"
+          ? "bg-[#0B0B0B]/95 backdrop-blur-md border-b border-[#2A2A2A] py-3.5"
           : "bg-transparent py-5"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          {/* Logo */}
-          <a href="#hero" className="flex items-center gap-3 group">
-            <div className="relative flex items-center justify-center w-11 h-11 rounded-xl bg-gradient-to-br from-purple-600 via-indigo-600 to-blue-600 p-[1.5px] transition-transform duration-300 group-hover:scale-105 shadow-neon-purple">
-              <div className="w-full h-full bg-wevi-darker rounded-[10px] flex items-center justify-center">
-                <span className="font-extrabold text-xl tracking-tighter bg-gradient-to-r from-purple-400 via-blue-400 to-cyan-300 bg-clip-text text-transparent">
-                  W
-                </span>
-              </div>
+          {/* Brand Logo matching BracketHub sharp yellow geometric aesthetic */}
+          <a href="#hero" className="flex items-center gap-2.5 group">
+            <div className="w-8 h-8 rounded-lg bg-[#FACC15] flex items-center justify-center text-black font-black text-lg transition-transform duration-200 group-hover:scale-105 shadow-sm">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M4 4h4v6h8V4h4v16h-4v-6H8v6H4V4z" />
+              </svg>
             </div>
-            <div className="flex flex-col">
-              <div className="flex items-center gap-1.5">
-                <span className="font-black text-xl tracking-wider text-white">
-                  WEVI <span className="text-wevi-neon-blue">INDIA</span>
-                </span>
-                <span className="px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-widest bg-purple-950/80 text-purple-300 border border-purple-800/60 rounded">
-                  ESPORTS
-                </span>
-              </div>
-              <span className="text-[10px] text-gray-400 tracking-wider font-medium uppercase">
-                Competitive Gaming Hub
+            <div className="flex items-baseline gap-1.5">
+              <span className="font-extrabold text-lg tracking-tight text-white">
+                WEVI <span className="text-[#FACC15]">INDIA</span>
+              </span>
+              <span className="text-[10px] font-semibold text-zinc-500 uppercase tracking-widest hidden sm:inline">
+                ESPORTS
               </span>
             </div>
           </a>
 
           {/* Desktop Nav Links */}
-          <nav className="hidden lg:flex items-center gap-1 bg-wevi-card/50 border border-wevi-border/50 px-3 py-1.5 rounded-full backdrop-blur-sm">
+          <nav className="hidden md:flex items-center gap-7">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-gray-300 hover:text-white hover:bg-wevi-border/40 rounded-full transition-all duration-200"
+                className="text-sm font-medium text-zinc-400 hover:text-white transition-colors"
               >
                 {link.label}
               </a>
             ))}
           </nav>
 
-          {/* Action CTAs */}
+          {/* Header Action Buttons matching the design */}
           <div className="hidden sm:flex items-center gap-3">
+            {onToggleDashboard && (
+              <button
+                onClick={onToggleDashboard}
+                className={`px-4 py-2 text-xs font-semibold rounded-xl border transition-all flex items-center gap-1.5 ${
+                  showDashboard
+                    ? "bg-[#FACC15] text-black border-[#FACC15]"
+                    : "bg-[#161616] text-zinc-300 border-[#2A2A2A] hover:border-zinc-500 hover:text-white"
+                }`}
+                title="Toggle Player View Dashboard"
+              >
+                <LayoutDashboard className="w-3.5 h-3.5" />
+                <span>{showDashboard ? "Exit Dashboard" : "Player Dashboard"}</span>
+              </button>
+            )}
+
             <button
               onClick={onOpenGoogleForm}
-              className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-semibold text-gray-300 hover:text-white bg-wevi-card border border-wevi-border hover:border-wevi-borderHover rounded-lg transition-all"
-              title="Open Official Google Forms"
+              className="px-3.5 py-2 text-xs font-medium text-zinc-400 hover:text-white bg-[#161616] hover:bg-[#1E1E1E] border border-[#2A2A2A] rounded-xl transition-all"
             >
-              <FileSpreadsheet className="w-3.5 h-3.5 text-purple-400" />
-              <span>Google Form</span>
+              Google Form
             </button>
 
             <button
               onClick={() => onOpenRegistration()}
-              className="relative group overflow-hidden px-5 py-2.5 rounded-lg font-bold text-xs uppercase tracking-wider text-white bg-gradient-to-r from-purple-600 via-indigo-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 transition-all duration-300 shadow-neon-purple active:scale-95"
+              className="btn-primary px-5 py-2 text-xs uppercase tracking-wider font-bold shadow-sm"
             >
-              <div className="flex items-center gap-2">
-                <Flame className="w-4 h-4 text-wevi-neon-cyan animate-pulse" />
-                <span>Register Now</span>
-              </div>
-              <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+              <span>Get Started</span>
+              <ArrowRight className="w-3.5 h-3.5 stroke-[2.5]" />
             </button>
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="lg:hidden flex items-center gap-2">
+          <div className="md:hidden flex items-center gap-2">
             <button
               onClick={() => onOpenRegistration()}
-              className="sm:hidden px-3 py-1.5 text-xs font-bold uppercase rounded-lg text-white bg-purple-600 shadow-neon-purple"
+              className="btn-primary px-3 py-1.5 text-xs font-bold"
             >
               Register
             </button>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-lg bg-wevi-card border border-wevi-border text-gray-300 hover:text-white focus:outline-none"
+              className="p-2 rounded-xl bg-[#161616] border border-[#2A2A2A] text-zinc-300 hover:text-white"
               aria-label="Toggle menu"
             >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
         </div>
       </div>
 
-      {/* Mobile Menu Drawer */}
+      {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-wevi-darker/95 border-b border-wevi-border/80 px-4 pt-3 pb-6 space-y-3 backdrop-blur-xl animate-in slide-in-from-top-4 duration-200">
-          <div className="grid grid-cols-2 gap-2 pb-3 border-b border-wevi-border/40">
+        <div className="md:hidden bg-[#0B0B0B] border-b border-[#2A2A2A] px-4 pt-3 pb-6 space-y-3">
+          <div className="flex flex-col gap-1 pb-3 border-b border-[#2A2A2A]">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="px-3 py-2 text-xs font-medium text-gray-300 hover:text-white hover:bg-wevi-card rounded-md transition-colors"
+                className="px-3 py-2 text-sm font-medium text-zinc-300 hover:text-white hover:bg-[#161616] rounded-lg transition-colors"
               >
                 {link.label}
               </a>
             ))}
           </div>
 
-          <div className="flex flex-col gap-2.5 pt-2">
+          <div className="flex flex-col gap-2 pt-2">
+            {onToggleDashboard && (
+              <button
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  onToggleDashboard();
+                }}
+                className="w-full py-2.5 rounded-xl text-xs font-semibold bg-[#161616] text-white border border-[#2A2A2A] flex items-center justify-center gap-2"
+              >
+                <LayoutDashboard className="w-4 h-4 text-[#FACC15]" />
+                <span>{showDashboard ? "Close Dashboard" : "Open Player Dashboard"}</span>
+              </button>
+            )}
+
             <button
               onClick={() => {
                 setMobileMenuOpen(false);
                 onOpenRegistration();
               }}
-              className="w-full py-3 rounded-lg font-bold text-xs uppercase tracking-wider text-white bg-gradient-to-r from-purple-600 to-blue-600 flex items-center justify-center gap-2 shadow-neon-purple"
+              className="btn-primary w-full py-3 text-xs font-bold"
             >
-              <Trophy className="w-4 h-4 text-cyan-300" />
               <span>Register Team / Solo</span>
-            </button>
-
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenGoogleForm();
-              }}
-              className="w-full py-2.5 rounded-lg font-semibold text-xs text-gray-300 bg-wevi-card border border-wevi-border flex items-center justify-center gap-2"
-            >
-              <FileSpreadsheet className="w-4 h-4 text-purple-400" />
-              <span>Direct Google Form Setup</span>
+              <ArrowRight className="w-4 h-4" />
             </button>
           </div>
         </div>

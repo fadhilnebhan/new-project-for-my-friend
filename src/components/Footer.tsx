@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Shield, MessageCircle, Instagram, Youtube, Twitter, Heart, ArrowUp } from "lucide-react";
+import { MessageCircle, Instagram, Youtube, Twitter, ArrowUp } from "lucide-react";
 import { PLATFORM_INFO } from "@/data/platform";
 import { SUPPORTED_GAMES } from "@/data/games";
 
@@ -17,34 +17,33 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenTerms, onSe
   };
 
   return (
-    <footer className="bg-wevi-darker border-t border-wevi-border/70 pt-16 pb-12 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-wevi-border/40">
+    <footer className="bg-[#0B0B0B] border-t border-[#1C1C1C] pt-16 pb-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-[#1C1C1C]">
           {/* Brand Info */}
-          <div className="lg:col-span-4 space-y-4">
-            <div className="flex items-center gap-3">
-              <div className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-purple-600 to-blue-600 p-[1.5px] shadow-neon-purple">
-                <div className="w-full h-full bg-wevi-darker rounded-[10px] flex items-center justify-center font-extrabold text-lg text-white">
-                  W
-                </div>
+          <div className="lg:col-span-5 space-y-4">
+            <div className="flex items-center gap-2.5">
+              <div className="w-7 h-7 rounded-lg bg-[#FACC15] flex items-center justify-center text-black font-black text-sm">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M4 4h4v6h8V4h4v16h-4v-6H8v6H4V4z" />
+                </svg>
               </div>
-              <span className="font-black text-xl tracking-wider text-white">
-                WEVI <span className="text-wevi-neon-blue">INDIA</span>
+              <span className="font-extrabold text-lg tracking-tight text-white">
+                WEVI <span className="text-[#FACC15]">INDIA</span>
               </span>
             </div>
 
-            <p className="text-xs text-gray-400 leading-relaxed max-w-sm">
-              India&apos;s premier competitive esports platform dedicated to fair play, organized bracket management, and grassroots talent elevation.
+            <p className="text-xs text-zinc-400 leading-relaxed max-w-sm">
+              India&apos;s all-in-one competitive gaming tournament platform. Create, join, and manage esports tournaments with fair play and real rewards.
             </p>
 
-            {/* Social Channels */}
             <div className="flex items-center gap-2 pt-2">
               <a
                 href={PLATFORM_INFO.community.whatsappGroupUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-8 h-8 rounded-lg bg-wevi-card border border-white/10 flex items-center justify-center text-gray-400 hover:text-emerald-400 hover:border-emerald-500/50 transition-colors"
-                title="WhatsApp Group"
+                className="w-8 h-8 rounded-lg bg-[#161616] border border-[#2A2A2A] flex items-center justify-center text-zinc-400 hover:text-[#FACC15] hover:border-[#FACC15]/40 transition-colors"
+                title="WhatsApp"
               >
                 <MessageCircle className="w-4 h-4" />
               </a>
@@ -52,7 +51,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenTerms, onSe
                 href={PLATFORM_INFO.community.instagramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-8 h-8 rounded-lg bg-wevi-card border border-white/10 flex items-center justify-center text-gray-400 hover:text-pink-400 hover:border-pink-500/50 transition-colors"
+                className="w-8 h-8 rounded-lg bg-[#161616] border border-[#2A2A2A] flex items-center justify-center text-zinc-400 hover:text-[#FACC15] hover:border-[#FACC15]/40 transition-colors"
                 title="Instagram"
               >
                 <Instagram className="w-4 h-4" />
@@ -61,7 +60,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenTerms, onSe
                 href={PLATFORM_INFO.community.youtubeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-8 h-8 rounded-lg bg-wevi-card border border-white/10 flex items-center justify-center text-gray-400 hover:text-red-400 hover:border-red-500/50 transition-colors"
+                className="w-8 h-8 rounded-lg bg-[#161616] border border-[#2A2A2A] flex items-center justify-center text-zinc-400 hover:text-[#FACC15] hover:border-[#FACC15]/40 transition-colors"
                 title="YouTube"
               >
                 <Youtube className="w-4 h-4" />
@@ -70,7 +69,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenTerms, onSe
                 href={PLATFORM_INFO.community.twitterUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-8 h-8 rounded-lg bg-wevi-card border border-white/10 flex items-center justify-center text-gray-400 hover:text-cyan-400 hover:border-cyan-500/50 transition-colors"
+                className="w-8 h-8 rounded-lg bg-[#161616] border border-[#2A2A2A] flex items-center justify-center text-zinc-400 hover:text-[#FACC15] hover:border-[#FACC15]/40 transition-colors"
                 title="Twitter / X"
               >
                 <Twitter className="w-4 h-4" />
@@ -83,20 +82,10 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenTerms, onSe
             <h4 className="text-xs font-bold uppercase tracking-wider text-white">
               Navigation
             </h4>
-            <ul className="space-y-2 text-xs text-gray-400">
+            <ul className="space-y-2 text-xs text-zinc-400">
               <li>
                 <a href="#hero" className="hover:text-white transition-colors">
-                  Home Arena
-                </a>
-              </li>
-              <li>
-                <a href="#about" className="hover:text-white transition-colors">
-                  About WEVI
-                </a>
-              </li>
-              <li>
-                <a href="#games" className="hover:text-white transition-colors">
-                  Supported Games
+                  Home
                 </a>
               </li>
               <li>
@@ -105,50 +94,54 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenTerms, onSe
                 </a>
               </li>
               <li>
-                <a href="#community" className="hover:text-white transition-colors">
-                  Community Hub
+                <a href="#games" className="hover:text-white transition-colors">
+                  Supported Games
                 </a>
               </li>
               <li>
-                <a href="#contact" className="hover:text-white transition-colors">
-                  Contact Support
+                <a href="#about" className="hover:text-white transition-colors">
+                  About
+                </a>
+              </li>
+              <li>
+                <a href="#community" className="hover:text-white transition-colors">
+                  Community
                 </a>
               </li>
             </ul>
           </div>
 
           {/* Supported Games */}
-          <div className="lg:col-span-3 space-y-3">
+          <div className="lg:col-span-2 space-y-3">
             <h4 className="text-xs font-bold uppercase tracking-wider text-white">
-              Official Divisions
+              Divisions
             </h4>
-            <ul className="space-y-2 text-xs text-gray-400">
+            <ul className="space-y-2 text-xs text-zinc-400">
               {SUPPORTED_GAMES.map((game) => (
                 <li key={game.id}>
                   <button
                     onClick={() => onSelectGame(game.name)}
-                    className="hover:text-purple-300 transition-colors flex items-center gap-1.5"
+                    className="hover:text-[#FACC15] transition-colors"
                   >
-                    <span>{game.name}</span>
-                    <span className="text-[10px] text-gray-600 font-mono">({game.category})</span>
+                    {game.name}
                   </button>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Legal & Operations */}
+          {/* Legal Links */}
           <div className="lg:col-span-3 space-y-3">
             <h4 className="text-xs font-bold uppercase tracking-wider text-white">
-              Integrity & Rules
+              Legal & Fair Play
             </h4>
-            <ul className="space-y-2 text-xs text-gray-400">
+            <ul className="space-y-2 text-xs text-zinc-400">
               <li>
                 <button
                   onClick={onOpenTerms}
                   className="hover:text-white transition-colors text-left"
                 >
-                  Tournament Terms & Conditions
+                  Tournament Rules & Terms
                 </button>
               </li>
               <li>
@@ -160,42 +153,29 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenTerms, onSe
                 </button>
               </li>
               <li>
-                <span className="text-gray-500">
-                  Anti-Cheat & Fair Play Code
-                </span>
-              </li>
-              <li>
-                <span className="text-gray-500">
-                  Captain Code of Conduct
-                </span>
+                <span className="text-zinc-500">Anti-Cheat Guidelines</span>
               </li>
             </ul>
           </div>
         </div>
 
         {/* Bottom bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-500">
           <div>
-            &copy; {new Date().getFullYear()} WEVI INDIA Esports. All rights reserved.
+            &copy; {new Date().getFullYear()} WEVI INDIA. All rights reserved.
           </div>
 
           <div className="flex items-center gap-4">
-            <button
-              onClick={onOpenPrivacy}
-              className="hover:text-gray-300 transition-colors"
-            >
-              Privacy Policy
+            <button onClick={onOpenPrivacy} className="hover:text-zinc-300">
+              Privacy
             </button>
             <span>•</span>
-            <button
-              onClick={onOpenTerms}
-              className="hover:text-gray-300 transition-colors"
-            >
-              Terms & Conditions
+            <button onClick={onOpenTerms} className="hover:text-zinc-300">
+              Terms
             </button>
             <button
               onClick={scrollToTop}
-              className="ml-2 w-8 h-8 rounded-lg bg-wevi-card border border-white/10 flex items-center justify-center hover:text-white hover:bg-wevi-border transition-colors"
+              className="ml-2 w-7 h-7 rounded-lg bg-[#161616] border border-[#2A2A2A] flex items-center justify-center hover:text-white transition-colors"
               title="Back to top"
             >
               <ArrowUp className="w-3.5 h-3.5" />

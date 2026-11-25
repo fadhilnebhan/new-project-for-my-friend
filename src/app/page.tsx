@@ -3,13 +3,14 @@
 import React, { useState } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
-import { About } from "@/components/About";
-import { SupportedGames } from "@/components/SupportedGames";
 import { Tournaments } from "@/components/Tournaments";
+import { SupportedGames } from "@/components/SupportedGames";
+import { About } from "@/components/About";
 import { WhyChooseUs } from "@/components/WhyChooseUs";
 import { Community } from "@/components/Community";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
+import { PlayerDashboard } from "@/components/PlayerDashboard";
 import { RegistrationModal } from "@/components/RegistrationModal";
 import { GoogleFormEmbedModal } from "@/components/GoogleFormEmbedModal";
 import { LegalModal } from "@/components/LegalModals";
@@ -20,6 +21,7 @@ export default function HomePage() {
   const [preselectedGame, setPreselectedGame] = useState<string | undefined>(undefined);
   const [isGoogleFormOpen, setIsGoogleFormOpen] = useState(false);
   const [legalModalType, setLegalModalType] = useState<"privacy" | "terms" | null>(null);
+  const [showDashboard, setShowDashboard] = useState(false);
 
   const handleOpenRegistration = (game?: string) => {
     setPreselectedGame(game);
@@ -31,33 +33,49 @@ export default function HomePage() {
   };
 
   return (
-    <main className="min-h-screen bg-wevi-darker text-gray-100 flex flex-col selection:bg-purple-600 selection:text-white">
-      {/* Sticky Navigation Bar */}
+    <main className="min-h-screen bg-[#0B0B0B] text-white flex flex-col selection:bg-[#FACC15] selection:text-black">
+      {/* Sticky Header */}
       <Navbar
         onOpenRegistration={() => handleOpenRegistration()}
         onOpenGoogleForm={() => setIsGoogleFormOpen(true)}
+        onToggleDashboard={() => setShowDashboard(!showDashboard)}
+        showDashboard={showDashboard}
       />
 
-      {/* Hero Section */}
-      <Hero onOpenRegistration={() => handleOpenRegistration()} />
+      {showDashboard ? (
+        /* Player View Dashboard matching the right side of the uploaded design */
+        <PlayerDashboard
+          onClose={() => setShowDashboard(false)}
+          onOpenRegister={() => handleOpenRegistration()}
+        />
+      ) : (
+        /* Main Public Platform Landing matching the left side of the uploaded design */
+        <>
+          {/* Hero Section */}
+          <Hero
+            onOpenRegistration={() => handleOpenRegistration()}
+            onBrowseTournaments={() => {}}
+          />
 
-      {/* About WEVI INDIA */}
-      <About />
+          {/* Live Tournaments Grid + Organize Banner */}
+          <Tournaments onRegisterTournament={handleSelectGame} />
 
-      {/* Supported Games */}
-      <SupportedGames onSelectGame={handleSelectGame} />
+          {/* Supported Games */}
+          <SupportedGames onSelectGame={handleSelectGame} />
 
-      {/* Tournaments Showcase */}
-      <Tournaments onRegisterTournament={handleSelectGame} />
+          {/* About WEVI INDIA */}
+          <About />
 
-      {/* Why Choose WEVI */}
-      <WhyChooseUs />
+          {/* Why Choose WEVI */}
+          <WhyChooseUs />
 
-      {/* Community Section */}
-      <Community />
+          {/* Community Section */}
+          <Community />
 
-      {/* Contact Section */}
-      <Contact />
+          {/* Support & Contact */}
+          <Contact />
+        </>
+      )}
 
       {/* Footer */}
       <Footer
@@ -80,7 +98,7 @@ export default function HomePage() {
         onOpenWebRegistration={() => handleOpenRegistration()}
       />
 
-      {/* Legal & Compliance Modals */}
+      {/* Legal Compliance Modals */}
       <LegalModal
         isOpen={legalModalType !== null}
         type={legalModalType || "privacy"}

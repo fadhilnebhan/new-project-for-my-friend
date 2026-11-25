@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { X, ExternalLink, FileSpreadsheet, Copy, Check, Code, Sparkles, BookOpen } from "lucide-react";
+import { X, ExternalLink, FileSpreadsheet, Copy, Check, Code } from "lucide-react";
 
 interface GoogleFormEmbedModalProps {
   isOpen: boolean;
@@ -17,7 +17,6 @@ export const GoogleFormEmbedModal: React.FC<GoogleFormEmbedModalProps> = ({
   const [activeTab, setActiveTab] = useState<"form" | "script">("form");
   const [copiedScript, setCopiedScript] = useState(false);
 
-  // Default placeholder link or env variable
   const defaultFormUrl =
     process.env.NEXT_PUBLIC_GOOGLE_FORM_URL ||
     "https://docs.google.com/forms/d/e/1FAIpQLSfWEVI_INDIA_REGISTRATION_PLACEHOLDER/viewform";
@@ -54,7 +53,7 @@ function createWeviRegistrationForm() {
     .setChoiceValues(['Free Fire', 'Call of Duty', 'BGMI', 'eFootball'])
     .setRequired(true);
 
-  // Step 5 Declaration Section (created earlier to target navigation)
+  // Step 5 Declaration Section
   var declarationSection = form.addPageBreakItem().setTitle('Declaration & Agreement');
   var declarationItem = form.addMultipleChoiceItem()
     .setTitle('I, the Team Captain, hereby declare that all the information provided is true and accurate. I understand that any incorrect information may result in team rejection, and I have no objections to participating with WEVI Leagues.')
@@ -88,8 +87,8 @@ function createWeviRegistrationForm() {
   form.addTextItem().setTitle('Player 4 UID / Game ID').setRequired(true);
   squadSection.setGoToPage(declarationSection);
 
-  // Branching Format Selector in Section 1
-  var formatPageBreak = form.addPageBreakItem().setTitle('Participation Format');
+  // Branching Format Selector
+  var formatSection = form.addPageBreakItem().setTitle('Participation Format');
   var formatItem = form.addMultipleChoiceItem()
     .setTitle('Select Participation Format')
     .setRequired(true);
@@ -105,54 +104,52 @@ function createWeviRegistrationForm() {
   form.setDestination(FormApp.DestinationType.SPREADSHEET, ss.getId());
 
   Logger.log('Google Form Published URL: ' + form.getPublishedUrl());
-  Logger.log('Google Form Edit URL: ' + form.getEditUrl());
   Logger.log('Linked Google Sheet URL: ' + ss.getUrl());
 }`;
 
   const handleCopyScript = () => {
     navigator.clipboard.writeText(appsScriptCode);
     setCopiedScript(true);
-    setTimeout(() => setCopiedScript(false), 2500);
+    setTimeout(() => setCopiedScript(false), 2000);
   };
 
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto bg-black/80 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 animate-in fade-in duration-200">
-      <div className="relative w-full max-w-3xl bg-wevi-card border border-wevi-border/90 rounded-2xl sm:rounded-3xl shadow-2xl shadow-purple-950/40 overflow-hidden flex flex-col my-auto max-h-[92vh]">
+    <div className="fixed inset-0 z-50 overflow-y-auto bg-black/85 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 animate-in fade-in duration-150">
+      <div className="relative w-full max-w-2xl bg-[#0E0E0E] border border-[#2A2A2A] rounded-2xl shadow-2xl overflow-hidden flex flex-col my-auto max-h-[92vh]">
         {/* Header Bar */}
-        <div className="px-6 py-4 border-b border-wevi-border/70 flex items-center justify-between bg-wevi-darker/80 shrink-0">
+        <div className="px-6 py-4 border-b border-[#222222] flex items-center justify-between bg-[#121212] shrink-0">
           <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-lg bg-emerald-950 border border-emerald-500/50 flex items-center justify-center font-bold text-sm text-emerald-400">
+            <div className="w-7 h-7 rounded-lg bg-[#1C1C1C] border border-[#333333] flex items-center justify-center text-[#FACC15]">
               <FileSpreadsheet className="w-4 h-4" />
             </div>
             <div>
-              <span className="font-black text-sm tracking-wider text-white uppercase">
-                Google Forms <span className="text-emerald-400">& Sheets Integration</span>
+              <span className="font-extrabold text-sm tracking-tight text-white">
+                Google Forms & Sheets
               </span>
-              <div className="text-[10px] text-gray-400 font-medium">
-                Official Google Workspace Integration for WEVI INDIA
+              <div className="text-[10px] text-zinc-400 font-medium">
+                Official Google Workspace Integration
               </div>
             </div>
           </div>
 
           <button
             onClick={onClose}
-            className="p-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white transition-colors"
-            aria-label="Close modal"
+            className="p-1.5 rounded-lg bg-[#181818] hover:bg-[#222222] text-zinc-400 hover:text-white transition-colors"
           >
-            <X className="w-5 h-5" />
+            <X className="w-4 h-4" />
           </button>
         </div>
 
         {/* Tab Switcher */}
-        <div className="flex border-b border-wevi-border/70 bg-wevi-darker/40 px-6 pt-3 gap-2 shrink-0">
+        <div className="flex border-b border-[#222222] bg-[#101010] px-6 pt-3 gap-2 shrink-0">
           <button
             onClick={() => setActiveTab("form")}
-            className={`pb-3 px-3 text-xs font-bold uppercase tracking-wider transition-colors border-b-2 flex items-center gap-1.5 ${
+            className={`pb-3 px-3 text-xs font-bold transition-colors border-b-2 flex items-center gap-1.5 ${
               activeTab === "form"
-                ? "border-purple-500 text-purple-300"
-                : "border-transparent text-gray-400 hover:text-white"
+                ? "border-[#FACC15] text-[#FACC15]"
+                : "border-transparent text-zinc-400 hover:text-white"
             }`}
           >
             <ExternalLink className="w-3.5 h-3.5" />
@@ -161,90 +158,75 @@ function createWeviRegistrationForm() {
 
           <button
             onClick={() => setActiveTab("script")}
-            className={`pb-3 px-3 text-xs font-bold uppercase tracking-wider transition-colors border-b-2 flex items-center gap-1.5 ${
+            className={`pb-3 px-3 text-xs font-bold transition-colors border-b-2 flex items-center gap-1.5 ${
               activeTab === "script"
-                ? "border-emerald-500 text-emerald-300"
-                : "border-transparent text-gray-400 hover:text-white"
+                ? "border-[#FACC15] text-[#FACC15]"
+                : "border-transparent text-zinc-400 hover:text-white"
             }`}
           >
             <Code className="w-3.5 h-3.5" />
-            <span>Google Apps Script Generator</span>
+            <span>Google Apps Script</span>
           </button>
         </div>
 
         {/* Modal Body */}
-        <div className="p-6 overflow-y-auto flex-1 space-y-6">
+        <div className="p-6 overflow-y-auto flex-1 space-y-5">
           {activeTab === "form" ? (
-            <div className="space-y-6">
-              <div className="p-4 rounded-xl bg-purple-950/30 border border-purple-800/40 space-y-2">
-                <div className="text-xs font-bold uppercase tracking-wider text-purple-300 flex items-center gap-2">
-                  <Sparkles className="w-3.5 h-3.5" />
-                  <span>Dual Registration Mode</span>
+            <div className="space-y-5">
+              <p className="text-xs text-zinc-300 leading-relaxed">
+                WEVI INDIA supports both our interactive web registration wizard (with instant validation & pass generation) and the official Google Form with conditional branching.
+              </p>
+
+              <div className="p-4 rounded-xl bg-[#141414] border border-[#2A2A2A] space-y-3">
+                <label className="block text-xs font-semibold text-zinc-300">
+                  Google Form URL
+                </label>
+                <div className="flex gap-2">
+                  <input
+                    type="url"
+                    value={formUrl}
+                    onChange={(e) => setFormUrl(e.target.value)}
+                    placeholder="https://docs.google.com/forms/d/e/.../viewform"
+                    className="flex-1 px-4 py-2 rounded-xl bg-[#181818] border border-[#2A2A2A] text-xs text-white focus:outline-none focus:border-[#FACC15] font-mono"
+                  />
+                  <a
+                    href={formUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-primary px-4 py-2 text-xs font-bold shrink-0"
+                  >
+                    <span>Open</span>
+                    <ExternalLink className="w-3.5 h-3.5" />
+                  </a>
                 </div>
-                <p className="text-xs text-gray-300 leading-relaxed">
-                  WEVI INDIA supports both our interactive web registration wizard (with instant validation and receipt generation) and the official Google Form with conditional branching.
-                </p>
               </div>
 
-              {/* Form URL Link Box */}
-              <div className="p-5 rounded-2xl bg-wevi-darker border border-wevi-border space-y-4">
-                <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-gray-300 mb-1.5">
-                    Official Google Form URL
-                  </label>
-                  <div className="flex gap-2">
-                    <input
-                      type="url"
-                      value={formUrl}
-                      onChange={(e) => setFormUrl(e.target.value)}
-                      placeholder="https://docs.google.com/forms/d/e/.../viewform"
-                      className="flex-1 px-4 py-2.5 rounded-xl bg-wevi-card border border-wevi-border text-xs text-white focus:outline-none focus:border-purple-500 font-mono"
-                    />
-                    <a
-                      href={formUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="px-5 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider text-white bg-emerald-600 hover:bg-emerald-500 flex items-center gap-2 transition-all shrink-0"
-                    >
-                      <span>Open Form</span>
-                      <ExternalLink className="w-3.5 h-3.5" />
-                    </a>
-                  </div>
-                  <p className="text-[10px] text-gray-500 mt-1.5">
-                    Organisation admins can customize this URL via the <code className="text-purple-400">NEXT_PUBLIC_GOOGLE_FORM_URL</code> environment variable.
-                  </p>
-                </div>
-
-                <div className="pt-4 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-3">
-                  <div className="text-xs text-gray-400">
-                    Prefer registering directly on the platform?
-                  </div>
-                  <button
-                    onClick={() => {
-                      onClose();
-                      onOpenWebRegistration();
-                    }}
-                    className="w-full sm:w-auto px-5 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider text-white bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 transition-all shadow-neon-purple"
-                  >
-                    Use Web Registration Wizard
-                  </button>
-                </div>
+              <div className="pt-2 flex justify-end">
+                <button
+                  onClick={() => {
+                    onClose();
+                    onOpenWebRegistration();
+                  }}
+                  className="btn-secondary px-4 py-2 text-xs font-semibold"
+                >
+                  Switch to Web Wizard
+                </button>
               </div>
             </div>
           ) : (
             <div className="space-y-4">
               <div className="flex items-center justify-between">
                 <div>
-                  <h4 className="text-sm font-bold uppercase tracking-wider text-white">
-                    One-Click Google Apps Script Generator
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-white">
+                    Google Apps Script Generator
                   </h4>
-                  <p className="text-xs text-gray-400">
-                    Runs in Google Apps Script to create the exact form with branching and linked Google Sheet.
+                  <p className="text-xs text-zinc-400">
+                    Creates the exact form with branching and linked Google Sheet.
                   </p>
                 </div>
                 <button
                   onClick={handleCopyScript}
-                  className="px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider text-white bg-emerald-600 hover:bg-emerald-500 flex items-center gap-1.5 transition-all shadow"
+                  className="btn-primary px-3 py-1.5 text-xs font-bold"
                 >
                   {copiedScript ? (
                     <>
@@ -260,17 +242,7 @@ function createWeviRegistrationForm() {
                 </button>
               </div>
 
-              <div className="p-3.5 rounded-xl bg-wevi-darker border border-wevi-border/70 text-xs text-gray-300 space-y-1.5">
-                <div className="font-bold text-emerald-400">Setup Instructions (30 seconds):</div>
-                <ol className="list-decimal list-inside space-y-1 text-gray-400 text-[11px]">
-                  <li>Go to <a href="https://script.google.com" target="_blank" rel="noreferrer" className="text-purple-400 underline">script.google.com</a> and click &ldquo;New Project&rdquo;.</li>
-                  <li>Paste the script below, replace existing code, and click Save.</li>
-                  <li>Click &ldquo;Run&rdquo; &rarr; &ldquo;createWeviRegistrationForm&rdquo;.</li>
-                  <li>Check the execution log for your new Google Form URL and linked Google Sheet!</li>
-                </ol>
-              </div>
-
-              <pre className="p-4 rounded-xl bg-black/80 border border-white/10 text-gray-300 font-mono text-[11px] overflow-x-auto max-h-60 leading-relaxed">
+              <pre className="p-4 rounded-xl bg-black border border-[#222222] text-zinc-300 font-mono text-[11px] overflow-x-auto max-h-56 leading-relaxed">
                 <code>{appsScriptCode}</code>
               </pre>
             </div>

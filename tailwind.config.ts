@@ -10,59 +10,41 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        wevi: {
-          darker: "#06080C",
-          dark: "#0B0E14",
-          card: "#111622",
-          cardHover: "#161D2D",
-          border: "#1E2638",
-          borderHover: "#2A364E",
-          purple: {
-            DEFAULT: "#9333EA",
-            light: "#A855F7",
-            glow: "#C084FC",
-            dark: "#7E22CE",
-          },
-          blue: {
-            DEFAULT: "#3B82F6",
-            light: "#60A5FA",
-            dark: "#1D4ED8",
-            cyan: "#06B6D4",
-          },
-          neon: {
-            purple: "#B026FF",
-            blue: "#00D2FF",
-            cyan: "#00F5FF",
-            green: "#10B981",
-            gold: "#F59E0B",
-          },
+        primary: {
+          DEFAULT: "#FACC15",
+          hover: "#EAB308",
+          active: "#CA8A04",
+          light: "#FEF08A",
+          muted: "rgba(250, 204, 21, 0.12)",
+        },
+        dark: {
+          bg: "#0B0B0B",
+          surface: "#161616",
+          card: "#121212",
+          elevated: "#1C1C1C",
+          border: "#2A2A2A",
+          subtle: "#1F1F1F",
+          text: "#FFFFFF",
+          muted: "#9CA3AF",
+        },
+        live: {
+          bg: "#2A0E0E",
+          border: "#7F1D1D",
+          dot: "#EF4444",
+          text: "#FCA5A5",
         },
       },
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "esports-mesh": "radial-gradient(at 27% 37%, hsla(267, 85%, 25%, 0.25) 0px, transparent 50%), radial-gradient(at 97% 21%, hsla(217, 91%, 30%, 0.25) 0px, transparent 50%), radial-gradient(at 52% 99%, hsla(190, 95%, 28%, 0.15) 0px, transparent 50%)",
-        "cyber-grid": "linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px)",
+      fontFamily: {
+        sans: ["Inter", "Satoshi", "system-ui", "-apple-system", "sans-serif"],
+        display: ["Rajdhani", "Inter", "sans-serif"],
       },
       boxShadow: {
-        "neon-purple": "0 0 25px -5px rgba(168, 85, 247, 0.4)",
-        "neon-blue": "0 0 25px -5px rgba(59, 130, 246, 0.4)",
-        "neon-cyan": "0 0 25px -5px rgba(6, 182, 212, 0.4)",
-        "glass": "0 8px 32px 0 rgba(0, 0, 0, 0.37)",
+        "primary-glow": "0 0 30px -5px rgba(250, 204, 21, 0.35)",
+        "card-subtle": "0 4px 20px -2px rgba(0, 0, 0, 0.7)",
       },
-      animation: {
-        "pulse-slow": "pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
-        "glow": "glow 2.5s ease-in-out infinite alternate",
-        "float": "float 3s ease-in-out infinite",
-      },
-      keyframes: {
-        glow: {
-          "0%": { opacity: "0.4", filter: "drop-shadow(0 0 10px rgba(168,85,247,0.4))" },
-          "100%": { opacity: "0.9", filter: "drop-shadow(0 0 25px rgba(59,130,246,0.7))" },
-        },
-        float: {
-          "0%, 100%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(-8px)" },
-        },
+      borderRadius: {
+        "2xl": "16px",
+        "3xl": "20px",
       },
     },
   },

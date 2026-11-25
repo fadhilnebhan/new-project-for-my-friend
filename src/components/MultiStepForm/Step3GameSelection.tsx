@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import { Gamepad2, CheckCircle2, AlertCircle } from "lucide-react";
+import { CheckCircle2, AlertCircle } from "lucide-react";
 import { SUPPORTED_GAMES } from "@/data/games";
 import { RegistrationFormData, SupportedGame } from "@/types/registration";
 
@@ -15,21 +15,19 @@ interface Step3Props {
 export const Step3GameSelection: React.FC<Step3Props> = ({ formData, errors, onChange }) => {
   const handleGameSelect = (gameName: SupportedGame) => {
     onChange("selectedGame", gameName);
-
-    // If eFootball is chosen, auto set format to Solo
     if (gameName === "eFootball") {
       onChange("participationFormat", "Solo");
     }
   };
 
   return (
-    <div className="space-y-6 animate-in fade-in duration-300">
-      <div className="border-b border-wevi-border/60 pb-4">
-        <h3 className="text-xl font-black uppercase tracking-tight text-white flex items-center gap-2">
-          <span>Step 3: Game Selection</span>
+    <div className="space-y-5 animate-in fade-in duration-200">
+      <div className="border-b border-[#222222] pb-3">
+        <h3 className="text-base font-bold text-white tracking-tight">
+          Step 3: Game Selection
         </h3>
-        <p className="text-xs text-gray-400 mt-1">
-          Choose the official tournament game you and your roster are registering to play.
+        <p className="text-xs text-zinc-400 mt-0.5">
+          Select the tournament game you and your team are registering to compete in.
         </p>
       </div>
 
@@ -40,7 +38,7 @@ export const Step3GameSelection: React.FC<Step3Props> = ({ formData, errors, onC
         </div>
       )}
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
         {SUPPORTED_GAMES.map((game) => {
           const isSelected = formData.selectedGame === game.name;
 
@@ -48,53 +46,48 @@ export const Step3GameSelection: React.FC<Step3Props> = ({ formData, errors, onC
             <div
               key={game.id}
               onClick={() => handleGameSelect(game.name)}
-              className={`relative cursor-pointer rounded-2xl overflow-hidden border p-4 transition-all duration-300 group flex items-center gap-4 ${
+              className={`relative cursor-pointer rounded-xl overflow-hidden border p-3.5 transition-all flex items-center gap-3.5 ${
                 isSelected
-                  ? "bg-purple-950/40 border-purple-500 shadow-neon-purple ring-2 ring-purple-500/50"
-                  : "bg-wevi-darker/90 border-wevi-border hover:border-purple-500/40 hover:bg-wevi-card"
+                  ? "bg-[#1C1C1C] border-[#FACC15] ring-1 ring-[#FACC15]"
+                  : "bg-[#141414] border-[#2A2A2A] hover:border-[#3A3A3A] hover:bg-[#181818]"
               }`}
             >
               {/* Thumbnail */}
-              <div className="relative w-20 h-20 rounded-xl overflow-hidden shrink-0 bg-wevi-card border border-white/10">
+              <div className="relative w-14 h-14 rounded-lg overflow-hidden shrink-0 bg-black border border-[#2A2A2A]">
                 <Image
                   src={game.thumbnail}
                   alt={game.name}
                   fill
-                  className="object-cover group-hover:scale-105 transition-transform"
+                  className="object-cover"
                 />
               </div>
 
               {/* Game details */}
               <div className="flex-1 min-w-0">
-                <div className="flex items-center justify-between gap-1 mb-1">
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-purple-400 truncate">
+                <div className="flex items-center justify-between gap-1 mb-0.5">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-zinc-500 truncate">
                     {game.category}
                   </span>
                   {isSelected && (
-                    <CheckCircle2 className="w-4 h-4 text-wevi-neon-cyan shrink-0" />
+                    <CheckCircle2 className="w-4 h-4 text-[#FACC15] shrink-0" />
                   )}
                 </div>
 
-                <h4 className="text-base font-black text-white uppercase tracking-tight group-hover:text-purple-300 transition-colors">
+                <h4 className="text-sm font-bold text-white tracking-tight">
                   {game.name}
                 </h4>
 
-                <div className="flex items-center gap-1.5 mt-2">
+                <div className="flex items-center gap-1 mt-1">
                   {game.supportedFormats.map((fmt) => (
                     <span
                       key={fmt}
-                      className="px-1.5 py-0.5 rounded text-[9px] font-bold uppercase bg-white/5 border border-white/10 text-gray-400"
+                      className="px-1.5 py-0.5 rounded text-[9px] font-semibold bg-[#222222] text-zinc-400"
                     >
                       {fmt}
                     </span>
                   ))}
                 </div>
               </div>
-
-              {/* Active Glow border strip */}
-              {isSelected && (
-                <div className="absolute top-0 bottom-0 left-0 w-1 bg-gradient-to-b from-purple-500 to-cyan-400" />
-              )}
             </div>
           );
         })}

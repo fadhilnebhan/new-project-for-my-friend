@@ -1,16 +1,23 @@
 export const PLATFORM_INFO = {
   name: "WEVI INDIA",
-  tagline: "ENTER THE ARENA. PROVE YOUR SKILLS.",
+  tagline: "PLAY · COMPETE · WIN",
+  title: "All-in-One Gaming Tournament Platform",
   subtitle:
-    "India's dedicated esports tournament platform bringing competitive gamers together across Free Fire, BGMI, Call of Duty, and eFootball with transparent brackets, fair play, and premier opportunities.",
+    "Create, join, and manage esports tournaments. Compete with players, climb the leaderboard, and win real rewards across BGMI, Free Fire, Call of Duty, and eFootball.",
   
   aboutPositioning:
     "WEVI is a competitive gaming platform dedicated to organizing exciting gaming tournaments, providing players with a fair, professional, and enjoyable esports experience. Our goal is to bring together talented gamers, encourage healthy competition, and create opportunities for teams to showcase their skills.",
 
+  heroStats: [
+    { label: "Registered Players", value: "25K+", icon: "Users" },
+    { label: "Tournaments Hosted", value: "1,200+", icon: "Trophy" },
+    { label: "Total Rewards", value: "₹10L+", icon: "Gift" },
+  ],
+
   stats: [
-    { label: "Active Competitors", value: "5,000+" },
-    { label: "Tournaments Hosted", value: "120+" },
-    { label: "Supported Titles", value: "4 Games" },
+    { label: "Registered Players", value: "25,000+" },
+    { label: "Tournaments Hosted", value: "1,200+" },
+    { label: "Total Distributed", value: "₹10,00,000+" },
     { label: "Fair Play Verified", value: "100%" },
   ],
 

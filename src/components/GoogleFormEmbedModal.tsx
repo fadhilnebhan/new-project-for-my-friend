@@ -117,11 +117,11 @@ function createWeviRegistrationForm() {
 
   return (
     <div className="fixed inset-0 z-50 overflow-y-auto bg-black/85 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 animate-in fade-in duration-150">
-      <div className="relative w-full max-w-2xl bg-[#0E0E0E] border border-[#2A2A2A] rounded-2xl shadow-2xl overflow-hidden flex flex-col my-auto max-h-[92vh]">
+      <div className="relative w-full max-w-2xl bg-[#0E0F12] border border-[#23252B] rounded-2xl shadow-2xl overflow-hidden flex flex-col my-auto max-h-[92vh]">
         {/* Header Bar */}
-        <div className="px-6 py-4 border-b border-[#222222] flex items-center justify-between bg-[#121212] shrink-0">
+        <div className="px-6 py-4 border-b border-[#1E2026] flex items-center justify-between bg-[#121316] shrink-0">
           <div className="flex items-center gap-2.5">
-            <div className="w-7 h-7 rounded-lg bg-[#1C1C1C] border border-[#333333] flex items-center justify-center text-[#FACC15]">
+            <div className="w-7 h-7 rounded-lg bg-[#181A20] border border-[#2B2E38] flex items-center justify-center text-[#F93822]">
               <FileSpreadsheet className="w-4 h-4" />
             </div>
             <div>
@@ -136,19 +136,19 @@ function createWeviRegistrationForm() {
 
           <button
             onClick={onClose}
-            className="p-1.5 rounded-lg bg-[#181818] hover:bg-[#222222] text-zinc-400 hover:text-white transition-colors"
+            className="p-1.5 rounded-lg bg-[#181A20] hover:bg-[#23252E] text-zinc-400 hover:text-white transition-colors"
           >
             <X className="w-4 h-4" />
           </button>
         </div>
 
         {/* Tab Switcher */}
-        <div className="flex border-b border-[#222222] bg-[#101010] px-6 pt-3 gap-2 shrink-0">
+        <div className="flex border-b border-[#1E2026] bg-[#101115] px-6 pt-3 gap-2 shrink-0">
           <button
             onClick={() => setActiveTab("form")}
             className={`pb-3 px-3 text-xs font-bold transition-colors border-b-2 flex items-center gap-1.5 ${
               activeTab === "form"
-                ? "border-[#FACC15] text-[#FACC15]"
+                ? "border-[#F93822] text-[#F93822]"
                 : "border-transparent text-zinc-400 hover:text-white"
             }`}
           >
@@ -160,7 +160,7 @@ function createWeviRegistrationForm() {
             onClick={() => setActiveTab("script")}
             className={`pb-3 px-3 text-xs font-bold transition-colors border-b-2 flex items-center gap-1.5 ${
               activeTab === "script"
-                ? "border-[#FACC15] text-[#FACC15]"
+                ? "border-[#F93822] text-[#F93822]"
                 : "border-transparent text-zinc-400 hover:text-white"
             }`}
           >
@@ -177,7 +177,7 @@ function createWeviRegistrationForm() {
                 WEVI INDIA supports both our interactive web registration wizard (with instant validation & pass generation) and the official Google Form with conditional branching.
               </p>
 
-              <div className="p-4 rounded-xl bg-[#141414] border border-[#2A2A2A] space-y-3">
+              <div className="p-4 rounded-xl bg-[#121316] border border-[#23252B] space-y-3">
                 <label className="block text-xs font-semibold text-zinc-300">
                   Google Form URL
                 </label>
@@ -187,13 +187,13 @@ function createWeviRegistrationForm() {
                     value={formUrl}
                     onChange={(e) => setFormUrl(e.target.value)}
                     placeholder="https://docs.google.com/forms/d/e/.../viewform"
-                    className="flex-1 px-4 py-2 rounded-xl bg-[#181818] border border-[#2A2A2A] text-xs text-white focus:outline-none focus:border-[#FACC15] font-mono"
+                    className="flex-1 px-4 py-2 rounded-xl bg-[#181A20] border border-[#23252B] text-xs text-white focus:outline-none focus:border-[#F93822] font-mono"
                   />
                   <a
                     href={formUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="btn-primary px-4 py-2 text-xs font-bold shrink-0"
+                    className="btn-coral px-4 py-2 text-xs font-bold shrink-0"
                   >
                     <span>Open</span>
                     <ExternalLink className="w-3.5 h-3.5" />
@@ -207,7 +207,7 @@ function createWeviRegistrationForm() {
                     onClose();
                     onOpenWebRegistration();
                   }}
-                  className="btn-secondary px-4 py-2 text-xs font-semibold"
+                  className="btn-dark px-4 py-2 text-xs font-semibold"
                 >
                   Switch to Web Wizard
                 </button>
@@ -226,7 +226,7 @@ function createWeviRegistrationForm() {
                 </div>
                 <button
                   onClick={handleCopyScript}
-                  className="btn-primary px-3 py-1.5 text-xs font-bold"
+                  className="btn-coral px-3 py-1.5 text-xs font-bold"
                 >
                   {copiedScript ? (
                     <>
@@ -242,7 +242,7 @@ function createWeviRegistrationForm() {
                 </button>
               </div>
 
-              <pre className="p-4 rounded-xl bg-black border border-[#222222] text-zinc-300 font-mono text-[11px] overflow-x-auto max-h-56 leading-relaxed">
+              <pre className="p-4 rounded-xl bg-black border border-[#1E2026] text-zinc-300 font-mono text-[11px] overflow-x-auto max-h-56 leading-relaxed">
                 <code>{appsScriptCode}</code>
               </pre>
             </div>

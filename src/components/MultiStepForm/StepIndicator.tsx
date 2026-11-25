@@ -20,26 +20,26 @@ export const StepIndicator: React.FC<StepIndicatorProps> = ({
       {/* Mobile bar */}
       <div className="sm:hidden mb-3">
         <div className="flex items-center justify-between text-xs font-bold text-zinc-400 mb-1.5">
-          <span className="text-[#FACC15] uppercase tracking-wider">
+          <span className="text-[#F93822] uppercase tracking-wider">
             Step {currentStep} of {steps.length}
           </span>
           <span className="text-white font-medium">
             {steps[currentStep - 1]?.title}
           </span>
         </div>
-        <div className="w-full h-1 bg-[#1A1A1A] rounded-full overflow-hidden">
+        <div className="w-full h-1 bg-[#1A1C22] rounded-full overflow-hidden">
           <div
-            className="h-full bg-[#FACC15] transition-all duration-300"
+            className="h-full bg-[#F93822] transition-all duration-300"
             style={{ width: `${(currentStep / steps.length) * 100}%` }}
           />
         </div>
       </div>
 
-      {/* Desktop step list matching clean BracketHub UI */}
+      {/* Desktop step list */}
       <div className="hidden sm:flex items-center justify-between relative">
-        <div className="absolute top-1/2 left-0 right-0 h-[1px] bg-[#222222] -translate-y-1/2 z-0" />
+        <div className="absolute top-1/2 left-0 right-0 h-[1px] bg-[#23252B] -translate-y-1/2 z-0" />
         <div
-          className="absolute top-1/2 left-0 h-[1px] bg-[#FACC15] -translate-y-1/2 z-0 transition-all duration-300"
+          className="absolute top-1/2 left-0 h-[1px] bg-[#F93822] -translate-y-1/2 z-0 transition-all duration-300"
           style={{ width: `${((currentStep - 1) / (steps.length - 1)) * 100}%` }}
         />
 
@@ -59,10 +59,10 @@ export const StepIndicator: React.FC<StepIndicatorProps> = ({
               <div
                 className={`w-7 h-7 rounded-full flex items-center justify-center font-bold text-xs transition-all duration-200 ${
                   isCompleted
-                    ? "bg-[#FACC15] text-black"
+                    ? "bg-[#F93822] text-white"
                     : isCurrent
-                    ? "bg-[#0B0B0B] text-[#FACC15] border-2 border-[#FACC15] ring-2 ring-[#FACC15]/20"
-                    : "bg-[#141414] text-zinc-500 border border-[#262626]"
+                    ? "bg-[#08080A] text-[#F93822] border-2 border-[#F93822] ring-2 ring-[#F93822]/20"
+                    : "bg-[#141519] text-zinc-500 border border-[#23252B]"
                 }`}
               >
                 {isCompleted ? <Check className="w-3.5 h-3.5 stroke-[3]" /> : step.number}

@@ -17,24 +17,23 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenTerms, onSe
   };
 
   return (
-    <footer className="bg-[#0B0B0B] border-t border-[#1C1C1C] pt-16 pb-12">
+    <footer className="bg-[#08080A] border-t border-[#1C1D22] pt-16 pb-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-[#1C1C1C]">
-          {/* Brand Info */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-[#1C1D22]">
           <div className="lg:col-span-5 space-y-4">
             <div className="flex items-center gap-2.5">
-              <div className="w-7 h-7 rounded-lg bg-[#FACC15] flex items-center justify-center text-black font-black text-sm">
+              <div className="w-7 h-7 rounded-lg bg-[#F93822] flex items-center justify-center text-white font-black text-sm">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M4 4h4v6h8V4h4v16h-4v-6H8v6H4V4z" />
+                  <path d="M12 2L2 7l10 15 10-15-10-5zm0 4.5l6 3-6 9-6-9 6-3z" />
                 </svg>
               </div>
               <span className="font-extrabold text-lg tracking-tight text-white">
-                WEVI <span className="text-[#FACC15]">INDIA</span>
+                WEVI <span className="text-[#F93822]">INDIA</span>
               </span>
             </div>
 
             <p className="text-xs text-zinc-400 leading-relaxed max-w-sm">
-              India&apos;s all-in-one competitive gaming tournament platform. Create, join, and manage esports tournaments with fair play and real rewards.
+              The home of esports tournaments. Compete in official circuits, climb the leaderboard, and win real rewards.
             </p>
 
             <div className="flex items-center gap-2 pt-2">
@@ -42,7 +41,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenTerms, onSe
                 href={PLATFORM_INFO.community.whatsappGroupUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-8 h-8 rounded-lg bg-[#161616] border border-[#2A2A2A] flex items-center justify-center text-zinc-400 hover:text-[#FACC15] hover:border-[#FACC15]/40 transition-colors"
+                className="w-8 h-8 rounded-lg bg-[#141519] border border-[#23252B] flex items-center justify-center text-zinc-400 hover:text-[#F93822] hover:border-[#F93822]/40 transition-colors"
                 title="WhatsApp"
               >
                 <MessageCircle className="w-4 h-4" />
@@ -51,7 +50,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenTerms, onSe
                 href={PLATFORM_INFO.community.instagramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-8 h-8 rounded-lg bg-[#161616] border border-[#2A2A2A] flex items-center justify-center text-zinc-400 hover:text-[#FACC15] hover:border-[#FACC15]/40 transition-colors"
+                className="w-8 h-8 rounded-lg bg-[#141519] border border-[#23252B] flex items-center justify-center text-zinc-400 hover:text-[#F93822] hover:border-[#F93822]/40 transition-colors"
                 title="Instagram"
               >
                 <Instagram className="w-4 h-4" />
@@ -60,7 +59,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenTerms, onSe
                 href={PLATFORM_INFO.community.youtubeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-8 h-8 rounded-lg bg-[#161616] border border-[#2A2A2A] flex items-center justify-center text-zinc-400 hover:text-[#FACC15] hover:border-[#FACC15]/40 transition-colors"
+                className="w-8 h-8 rounded-lg bg-[#141519] border border-[#23252B] flex items-center justify-center text-zinc-400 hover:text-[#F93822] hover:border-[#F93822]/40 transition-colors"
                 title="YouTube"
               >
                 <Youtube className="w-4 h-4" />
@@ -69,7 +68,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenTerms, onSe
                 href={PLATFORM_INFO.community.twitterUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-8 h-8 rounded-lg bg-[#161616] border border-[#2A2A2A] flex items-center justify-center text-zinc-400 hover:text-[#FACC15] hover:border-[#FACC15]/40 transition-colors"
+                className="w-8 h-8 rounded-lg bg-[#141519] border border-[#23252B] flex items-center justify-center text-zinc-400 hover:text-[#F93822] hover:border-[#F93822]/40 transition-colors"
                 title="Twitter / X"
               >
                 <Twitter className="w-4 h-4" />
@@ -77,7 +76,6 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenTerms, onSe
             </div>
           </div>
 
-          {/* Quick Links */}
           <div className="lg:col-span-2 space-y-3">
             <h4 className="text-xs font-bold uppercase tracking-wider text-white">
               Navigation
@@ -95,7 +93,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenTerms, onSe
               </li>
               <li>
                 <a href="#games" className="hover:text-white transition-colors">
-                  Supported Games
+                  Games
                 </a>
               </li>
               <li>
@@ -111,7 +109,6 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenTerms, onSe
             </ul>
           </div>
 
-          {/* Supported Games */}
           <div className="lg:col-span-2 space-y-3">
             <h4 className="text-xs font-bold uppercase tracking-wider text-white">
               Divisions
@@ -121,7 +118,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenTerms, onSe
                 <li key={game.id}>
                   <button
                     onClick={() => onSelectGame(game.name)}
-                    className="hover:text-[#FACC15] transition-colors"
+                    className="hover:text-[#F93822] transition-colors"
                   >
                     {game.name}
                   </button>
@@ -130,10 +127,9 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenTerms, onSe
             </ul>
           </div>
 
-          {/* Legal Links */}
           <div className="lg:col-span-3 space-y-3">
             <h4 className="text-xs font-bold uppercase tracking-wider text-white">
-              Legal & Fair Play
+              Legal & Rules
             </h4>
             <ul className="space-y-2 text-xs text-zinc-400">
               <li>
@@ -141,7 +137,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenTerms, onSe
                   onClick={onOpenTerms}
                   className="hover:text-white transition-colors text-left"
                 >
-                  Tournament Rules & Terms
+                  Tournament Terms & Conditions
                 </button>
               </li>
               <li>
@@ -153,16 +149,15 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenTerms, onSe
                 </button>
               </li>
               <li>
-                <span className="text-zinc-500">Anti-Cheat Guidelines</span>
+                <span className="text-zinc-500">Anti-Cheat Code</span>
               </li>
             </ul>
           </div>
         </div>
 
-        {/* Bottom bar */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-500">
           <div>
-            &copy; {new Date().getFullYear()} WEVI INDIA. All rights reserved.
+            &copy; {new Date().getFullYear()} WEVI INDIA Esports. All rights reserved.
           </div>
 
           <div className="flex items-center gap-4">
@@ -175,7 +170,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenTerms, onSe
             </button>
             <button
               onClick={scrollToTop}
-              className="ml-2 w-7 h-7 rounded-lg bg-[#161616] border border-[#2A2A2A] flex items-center justify-center hover:text-white transition-colors"
+              className="ml-2 w-7 h-7 rounded-lg bg-[#141519] border border-[#23252B] flex items-center justify-center hover:text-white transition-colors"
               title="Back to top"
             >
               <ArrowUp className="w-3.5 h-3.5" />

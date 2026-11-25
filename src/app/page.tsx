@@ -33,7 +33,7 @@ export default function HomePage() {
   };
 
   return (
-    <main className="min-h-screen bg-[#0B0B0B] text-white flex flex-col selection:bg-[#FACC15] selection:text-black">
+    <main className="min-h-screen bg-[#08080A] text-white flex flex-col selection:bg-[#F93822] selection:text-white">
       {/* Sticky Header */}
       <Navbar
         onOpenRegistration={() => handleOpenRegistration()}

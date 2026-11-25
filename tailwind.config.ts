@@ -11,19 +11,19 @@ const config: Config = {
     extend: {
       colors: {
         primary: {
-          DEFAULT: "#FACC15",
-          hover: "#EAB308",
-          active: "#CA8A04",
-          light: "#FEF08A",
-          muted: "rgba(250, 204, 21, 0.12)",
+          DEFAULT: "#F93822",
+          hover: "#E02D17",
+          dark: "#B91C1C",
+          light: "#FFA094",
+          muted: "rgba(249, 56, 34, 0.12)",
         },
         dark: {
-          bg: "#0B0B0B",
-          surface: "#161616",
-          card: "#121212",
-          elevated: "#1C1C1C",
-          border: "#2A2A2A",
-          subtle: "#1F1F1F",
+          bg: "#08080A",
+          surface: "#111215",
+          card: "#15161A",
+          cardHover: "#1A1C22",
+          border: "#23252B",
+          borderSubtle: "#1C1D22",
           text: "#FFFFFF",
           muted: "#9CA3AF",
         },
@@ -38,11 +38,8 @@ const config: Config = {
         sans: ["Inter", "Satoshi", "system-ui", "-apple-system", "sans-serif"],
         display: ["Rajdhani", "Inter", "sans-serif"],
       },
-      boxShadow: {
-        "primary-glow": "0 0 30px -5px rgba(250, 204, 21, 0.35)",
-        "card-subtle": "0 4px 20px -2px rgba(0, 0, 0, 0.7)",
-      },
       borderRadius: {
+        xl: "12px",
         "2xl": "16px",
         "3xl": "20px",
       },

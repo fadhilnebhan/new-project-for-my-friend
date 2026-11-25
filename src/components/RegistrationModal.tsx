@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { X, ArrowRight, ArrowLeft, Loader2, Sparkles, RefreshCw } from "lucide-react";
+import { X, ArrowRight, ArrowLeft, Loader2, RefreshCw } from "lucide-react";
 import {
   RegistrationFormData,
   RegistrationSubmission,
@@ -244,11 +244,11 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
 
   return (
     <div className="fixed inset-0 z-50 overflow-y-auto bg-black/85 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 animate-in fade-in duration-150">
-      <div className="relative w-full max-w-2xl bg-[#0E0E0E] border border-[#2A2A2A] rounded-2xl shadow-2xl overflow-hidden flex flex-col my-auto max-h-[92vh]">
+      <div className="relative w-full max-w-2xl bg-[#0E0F12] border border-[#23252B] rounded-2xl shadow-2xl overflow-hidden flex flex-col my-auto max-h-[92vh]">
         {/* Header Bar */}
-        <div className="px-6 py-4 border-b border-[#222222] flex items-center justify-between bg-[#121212] shrink-0">
+        <div className="px-6 py-4 border-b border-[#1E2026] flex items-center justify-between bg-[#121316] shrink-0">
           <div className="flex items-center gap-2.5">
-            <div className="w-7 h-7 rounded-lg bg-[#FACC15] flex items-center justify-center font-black text-xs text-black">
+            <div className="w-7 h-7 rounded-lg bg-[#F93822] flex items-center justify-center font-black text-xs text-white">
               W
             </div>
             <div>
@@ -263,7 +263,7 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
 
           <button
             onClick={onClose}
-            className="p-1.5 rounded-lg bg-[#181818] hover:bg-[#222222] text-zinc-400 hover:text-white transition-colors"
+            className="p-1.5 rounded-lg bg-[#181A20] hover:bg-[#23252E] text-zinc-400 hover:text-white transition-colors"
             aria-label="Close"
           >
             <X className="w-4 h-4" />
@@ -335,13 +335,13 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
 
         {/* Footer Navigation */}
         {!submissionResult && (
-          <div className="px-6 py-4 border-t border-[#222222] bg-[#121212] flex items-center justify-between gap-3 shrink-0">
+          <div className="px-6 py-4 border-t border-[#1E2026] bg-[#121316] flex items-center justify-between gap-3 shrink-0">
             <div>
               {currentStep > 1 ? (
                 <button
                   type="button"
                   onClick={handleBack}
-                  className="btn-secondary px-4 py-2 text-xs font-semibold"
+                  className="btn-dark px-4 py-2 text-xs font-semibold"
                 >
                   <ArrowLeft className="w-3.5 h-3.5" />
                   <span>Back</span>
@@ -363,7 +363,7 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
                 <button
                   type="button"
                   onClick={handleNext}
-                  className="btn-primary px-6 py-2 text-xs font-bold"
+                  className="btn-coral px-6 py-2 text-xs font-bold"
                 >
                   <span>Continue</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -373,7 +373,7 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
                   type="button"
                   disabled={isSubmitting}
                   onClick={handleSubmit}
-                  className="btn-primary px-7 py-2.5 text-xs font-bold disabled:opacity-50"
+                  className="btn-coral px-7 py-2.5 text-xs font-bold disabled:opacity-50"
                 >
                   {isSubmitting ? (
                     <>

@@ -14,11 +14,11 @@ export const LegalModal: React.FC<LegalModalProps> = ({ isOpen, type, onClose })
 
   return (
     <div className="fixed inset-0 z-50 overflow-y-auto bg-black/85 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 animate-in fade-in duration-150">
-      <div className="relative w-full max-w-2xl bg-[#0E0E0E] border border-[#2A2A2A] rounded-2xl shadow-2xl overflow-hidden flex flex-col my-auto max-h-[90vh]">
+      <div className="relative w-full max-w-2xl bg-[#0E0F12] border border-[#23252B] rounded-2xl shadow-2xl overflow-hidden flex flex-col my-auto max-h-[90vh]">
         {/* Header */}
-        <div className="px-6 py-4 border-b border-[#222222] flex items-center justify-between bg-[#121212] shrink-0">
+        <div className="px-6 py-4 border-b border-[#1E2026] flex items-center justify-between bg-[#121316] shrink-0">
           <div className="flex items-center gap-2.5">
-            <div className="w-7 h-7 rounded-lg bg-[#1C1C1C] border border-[#333333] flex items-center justify-center text-[#FACC15]">
+            <div className="w-7 h-7 rounded-lg bg-[#181A20] border border-[#2B2E38] flex items-center justify-center text-[#F93822]">
               {type === "privacy" ? <ShieldCheck className="w-4 h-4" /> : <FileText className="w-4 h-4" />}
             </div>
             <div>
@@ -33,7 +33,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({ isOpen, type, onClose })
 
           <button
             onClick={onClose}
-            className="p-1.5 rounded-lg bg-[#181818] hover:bg-[#222222] text-zinc-400 hover:text-white transition-colors"
+            className="p-1.5 rounded-lg bg-[#181A20] hover:bg-[#23252E] text-zinc-400 hover:text-white transition-colors"
           >
             <X className="w-4 h-4" />
           </button>
@@ -47,14 +47,14 @@ export const LegalModal: React.FC<LegalModalProps> = ({ isOpen, type, onClose })
                 WEVI INDIA is dedicated to securing the personal data of our registered players, team captains, and community members.
               </p>
 
-              <h4 className="font-bold text-xs uppercase tracking-wider text-[#FACC15] pt-1">
+              <h4 className="font-bold text-xs uppercase tracking-wider text-[#F93822] pt-1">
                 1. Information Collected
               </h4>
               <p>
                 Email address, team name, captain&apos;s real name, in-game name (IGN), game UID, and phone numbers are collected exclusively for tournament matchmaking, slot assignment, and prize payouts.
               </p>
 
-              <h4 className="font-bold text-xs uppercase tracking-wider text-[#FACC15] pt-1">
+              <h4 className="font-bold text-xs uppercase tracking-wider text-[#F93822] pt-1">
                 2. Privacy & Confidentiality
               </h4>
               <p>
@@ -67,21 +67,21 @@ export const LegalModal: React.FC<LegalModalProps> = ({ isOpen, type, onClose })
                 By enrolling in any WEVI INDIA tournament, team captains and players agree to the official regulations:
               </p>
 
-              <h4 className="font-bold text-xs uppercase tracking-wider text-[#FACC15] pt-1">
+              <h4 className="font-bold text-xs uppercase tracking-wider text-[#F93822] pt-1">
                 1. Accurate Information
               </h4>
               <p>
                 The captain confirms that all player UIDs and IGNs are authentic. Falsified identities or smurfing will result in disqualification.
               </p>
 
-              <h4 className="font-bold text-xs uppercase tracking-wider text-[#FACC15] pt-1">
+              <h4 className="font-bold text-xs uppercase tracking-wider text-[#F93822] pt-1">
                 2. Anti-Cheat & Sportsmanship
               </h4>
               <p>
                 Third-party scripts, hacks, or unauthorized emulator modifications are strictly banned. Referees may request POV recordings when needed.
               </p>
 
-              <h4 className="font-bold text-xs uppercase tracking-wider text-[#FACC15] pt-1">
+              <h4 className="font-bold text-xs uppercase tracking-wider text-[#F93822] pt-1">
                 3. Room Credentials Protocol
               </h4>
               <p>
@@ -92,10 +92,10 @@ export const LegalModal: React.FC<LegalModalProps> = ({ isOpen, type, onClose })
         </div>
 
         {/* Footer */}
-        <div className="px-6 py-3 border-t border-[#222222] bg-[#121212] flex items-center justify-end">
+        <div className="px-6 py-3 border-t border-[#1E2026] bg-[#121316] flex items-center justify-end">
           <button
             onClick={onClose}
-            className="btn-primary px-4 py-2 text-xs font-bold"
+            className="btn-coral px-4 py-2 text-xs font-bold"
           >
             Acknowledge & Close
           </button>

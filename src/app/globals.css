@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --background: #0B0B0B;
+  --background: #08080A;
   --foreground: #FFFFFF;
 }
 
@@ -27,54 +27,53 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Custom Minimal Scrollbar */
+/* Custom Minimalist Scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 5px;
+  height: 5px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #0B0B0B;
+  background: #08080A;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #2A2A2A;
+  background: #23252B;
   border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #FACC15;
+  background: #F93822;
 }
 
-/* Custom Card & Surface styling */
-.surface-card {
-  background-color: #121212;
-  border: 1px solid #2A2A2A;
+/* Custom Bespoke Card & Surface styles directly matching the user's reference */
+.esports-surface {
+  background-color: #121316;
+  border: 1px solid #23252B;
   border-radius: 16px;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.surface-card:hover {
-  border-color: #3A3A3A;
+.esports-surface:hover {
+  border-color: #353842;
 }
 
-.surface-card-interactive {
-  background-color: #141414;
-  border: 1px solid #2A2A2A;
+.esports-card {
+  background-color: #15161A;
+  border: 1px solid #23252B;
   border-radius: 16px;
-  transition: all 0.2s ease;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.surface-card-interactive:hover {
-  border-color: #FACC15;
+.esports-card:hover {
+  border-color: #F93822;
   transform: translateY(-2px);
-  background-color: #181818;
 }
 
-/* Button & Badge styles directly matching the user's uploaded design */
-.btn-primary {
-  background-color: #FACC15;
-  color: #000000;
+/* Buttons matching the uploaded image */
+.btn-coral {
+  background-color: #F93822;
+  color: #FFFFFF;
   font-weight: 600;
   border-radius: 12px;
   transition: all 0.2s ease;
@@ -84,17 +83,19 @@ body {
   gap: 8px;
 }
 
-.btn-primary:hover {
-  background-color: #EAB308;
+.btn-coral:hover {
+  background-color: #E02D17;
   transform: translateY(-1px);
+  box-shadow: 0 4px 20px -2px rgba(249, 56, 34, 0.35);
 }
 
-.btn-secondary {
-  background-color: #161616;
+.btn-dark {
+  background-color: rgba(22, 23, 27, 0.85);
   color: #FFFFFF;
-  border: 1px solid #2A2A2A;
+  border: 1px solid #2E3036;
   font-weight: 500;
   border-radius: 12px;
+  backdrop-filter: blur(8px);
   transition: all 0.2s ease;
   display: inline-flex;
   align-items: center;
@@ -102,29 +103,17 @@ body {
   gap: 8px;
 }
 
-.btn-secondary:hover {
-  background-color: #222222;
-  border-color: #383838;
-}
-
-.btn-ghost {
-  color: #9CA3AF;
-  font-weight: 500;
-  border-radius: 12px;
-  transition: all 0.2s ease;
-}
-
-.btn-ghost:hover {
-  color: #FFFFFF;
-  background-color: rgba(255, 255, 255, 0.05);
+.btn-dark:hover {
+  background-color: #23252B;
+  border-color: #40444D;
 }
 
 /* Live pill badge */
-.badge-live {
+.badge-live-red {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background-color: #2D0F0F;
+  background-color: #2A0E0E;
   border: 1px solid #7F1D1D;
   color: #FCA5A5;
   font-size: 11px;
@@ -133,22 +122,16 @@ body {
   border-radius: 9999px;
 }
 
-.badge-live-dot {
+.badge-live-red-dot {
   width: 6px;
   height: 6px;
   border-radius: 9999px;
   background-color: #EF4444;
-  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
-/* Subtle Angular Brand Backdrop Accent */
-.hero-angular-accent {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 48%;
-  height: 100%;
-  pointer-events: none;
-  background: linear-gradient(135deg, transparent 40%, rgba(250, 204, 21, 0.08) 75%, rgba(250, 204, 21, 0.15) 100%);
-  clip-path: polygon(30% 0, 100% 0, 100% 100%, 0% 100%);
+/* Subtle Hero Cinematic Vignette */
+.hero-vignette {
+  background: radial-gradient(circle at center, transparent 30%, #08080A 95%),
+              linear-gradient(to top, #08080A 5%, transparent 60%);
 }

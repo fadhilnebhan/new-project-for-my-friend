@@ -24,15 +24,15 @@ export const Contact: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-[#0B0B0B] border-t border-[#1C1C1C]">
+    <section id="contact" className="py-20 bg-[#08080A] border-t border-[#1C1D22]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
           <div>
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#FACC15]">
-              Direct Inquiries
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight mt-1">
-              Contact & Support
+            <div className="text-[11px] font-mono tracking-[0.2em] text-[#F93822] uppercase font-bold mb-1">
+              /// HELPDESK
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-black text-white italic tracking-tight">
+              Contact & Match Support
             </h2>
           </div>
           <p className="text-xs sm:text-sm text-zinc-400 max-w-md">
@@ -41,25 +41,24 @@ export const Contact: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          {/* Left Column: Contact Channels */}
-          <div className="lg:col-span-5 surface-card p-6 space-y-6">
-            <h3 className="text-base font-bold text-white uppercase tracking-wider">
-              Official Channels
+          <div className="lg:col-span-5 esports-card p-6 space-y-5">
+            <h3 className="text-sm font-bold text-white uppercase tracking-wider">
+              Official Helpdesk Channels
             </h3>
 
             <div className="space-y-3">
               <a
                 href={`mailto:${PLATFORM_INFO.community.supportEmail}`}
-                className="flex items-center gap-3.5 p-3.5 rounded-xl bg-[#161616] border border-[#222222] hover:border-[#383838] transition-all group"
+                className="flex items-center gap-3.5 p-3.5 rounded-xl bg-[#121316] border border-[#23252B] hover:border-[#353842] transition-all group"
               >
-                <div className="w-9 h-9 rounded-lg bg-[#1F1F1F] flex items-center justify-center text-[#FACC15] shrink-0">
+                <div className="w-9 h-9 rounded-lg bg-[#1D1F25] flex items-center justify-center text-[#F93822] shrink-0">
                   <Mail className="w-4 h-4" />
                 </div>
                 <div>
                   <div className="text-[10px] font-bold text-zinc-400 uppercase tracking-wider">
                     Official Email
                   </div>
-                  <div className="text-xs sm:text-sm font-semibold text-white group-hover:text-[#FACC15] transition-colors">
+                  <div className="text-xs sm:text-sm font-semibold text-white group-hover:text-[#F93822] transition-colors">
                     {PLATFORM_INFO.community.supportEmail}
                   </div>
                 </div>
@@ -69,23 +68,23 @@ export const Contact: React.FC = () => {
                 href={PLATFORM_INFO.community.captainHelpdesk}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3.5 p-3.5 rounded-xl bg-[#161616] border border-[#222222] hover:border-[#383838] transition-all group"
+                className="flex items-center gap-3.5 p-3.5 rounded-xl bg-[#121316] border border-[#23252B] hover:border-[#353842] transition-all group"
               >
-                <div className="w-9 h-9 rounded-lg bg-[#1F1F1F] flex items-center justify-center text-[#FACC15] shrink-0">
+                <div className="w-9 h-9 rounded-lg bg-[#1D1F25] flex items-center justify-center text-[#F93822] shrink-0">
                   <MessageCircle className="w-4 h-4" />
                 </div>
                 <div>
                   <div className="text-[10px] font-bold text-zinc-400 uppercase tracking-wider">
-                    Captain Desk (WhatsApp)
+                    WhatsApp Captain Desk
                   </div>
-                  <div className="text-xs sm:text-sm font-semibold text-white group-hover:text-[#FACC15] transition-colors">
+                  <div className="text-xs sm:text-sm font-semibold text-white group-hover:text-[#F93822] transition-colors">
                     {PLATFORM_INFO.community.whatsappNumber}
                   </div>
                 </div>
               </a>
 
-              <div className="flex items-center gap-3.5 p-3.5 rounded-xl bg-[#161616] border border-[#222222]">
-                <div className="w-9 h-9 rounded-lg bg-[#1F1F1F] flex items-center justify-center text-zinc-400 shrink-0">
+              <div className="flex items-center gap-3.5 p-3.5 rounded-xl bg-[#121316] border border-[#23252B]">
+                <div className="w-9 h-9 rounded-lg bg-[#1D1F25] flex items-center justify-center text-zinc-400 shrink-0">
                   <Clock className="w-4 h-4" />
                 </div>
                 <div>
@@ -100,15 +99,14 @@ export const Contact: React.FC = () => {
             </div>
           </div>
 
-          {/* Right Column: Form */}
-          <div className="lg:col-span-7 surface-card p-6 sm:p-8">
-            <h3 className="text-base font-bold text-white uppercase tracking-wider mb-6">
+          <div className="lg:col-span-7 esports-card p-6 sm:p-8">
+            <h3 className="text-sm font-bold text-white uppercase tracking-wider mb-6">
               Send a Message
             </h3>
 
             {formSubmitted ? (
-              <div className="p-8 rounded-xl bg-[#161616] border border-[#FACC15]/40 text-center space-y-3">
-                <CheckCircle2 className="w-8 h-8 text-[#FACC15] mx-auto" />
+              <div className="p-8 rounded-xl bg-[#121316] border border-[#F93822]/40 text-center space-y-3">
+                <CheckCircle2 className="w-8 h-8 text-[#F93822] mx-auto" />
                 <div className="text-base font-bold text-white">Message Dispatched!</div>
                 <p className="text-xs text-zinc-400">
                   A tournament referee will review your message and reply via WhatsApp or email shortly.
@@ -127,7 +125,7 @@ export const Contact: React.FC = () => {
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       placeholder="e.g. Captain Shadow"
-                      className="w-full px-4 py-2.5 rounded-xl bg-[#161616] border border-[#2A2A2A] focus:border-[#FACC15] focus:outline-none text-xs sm:text-sm text-white placeholder-zinc-600"
+                      className="w-full px-4 py-2.5 rounded-xl bg-[#121316] border border-[#23252B] focus:border-[#F93822] focus:outline-none text-xs sm:text-sm text-white placeholder-zinc-600"
                     />
                   </div>
 
@@ -141,7 +139,7 @@ export const Contact: React.FC = () => {
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       placeholder="captain@example.com"
-                      className="w-full px-4 py-2.5 rounded-xl bg-[#161616] border border-[#2A2A2A] focus:border-[#FACC15] focus:outline-none text-xs sm:text-sm text-white placeholder-zinc-600"
+                      className="w-full px-4 py-2.5 rounded-xl bg-[#121316] border border-[#23252B] focus:border-[#F93822] focus:outline-none text-xs sm:text-sm text-white placeholder-zinc-600"
                     />
                   </div>
                 </div>
@@ -153,7 +151,7 @@ export const Contact: React.FC = () => {
                   <select
                     value={formData.subject}
                     onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                    className="w-full px-4 py-2.5 rounded-xl bg-[#161616] border border-[#2A2A2A] focus:border-[#FACC15] focus:outline-none text-xs sm:text-sm text-white"
+                    className="w-full px-4 py-2.5 rounded-xl bg-[#121316] border border-[#23252B] focus:border-[#F93822] focus:outline-none text-xs sm:text-sm text-white"
                   >
                     <option value="Tournament Query">Tournament Registration Query</option>
                     <option value="Anti-Cheat Dispute">Match Result / Anti-Cheat Dispute</option>
@@ -172,13 +170,13 @@ export const Contact: React.FC = () => {
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     placeholder="Include team name, game title, and question..."
-                    className="w-full px-4 py-2.5 rounded-xl bg-[#161616] border border-[#2A2A2A] focus:border-[#FACC15] focus:outline-none text-xs sm:text-sm text-white placeholder-zinc-600 resize-none"
+                    className="w-full px-4 py-2.5 rounded-xl bg-[#121316] border border-[#23252B] focus:border-[#F93822] focus:outline-none text-xs sm:text-sm text-white placeholder-zinc-600 resize-none"
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="btn-primary w-full py-3 text-xs font-bold uppercase tracking-wider"
+                  className="btn-coral w-full py-3 text-xs font-bold uppercase tracking-wider"
                 >
                   <Send className="w-3.5 h-3.5" />
                   <span>Send Message</span>
